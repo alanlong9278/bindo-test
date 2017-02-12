@@ -1,0 +1,32 @@
+{
+  "name": "bindo-test",
+  "version": "1.0.0",
+  "description": "Demo for bindo test",
+  "main": "index.jsx",
+  "scripts": {
+    "start": "webpack-dev-server --progress",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "Demo",
+    "Flux",
+    "React"
+  ],
+  "author": "Alan Long",
+  "license": "MIT",
+  "dependencies": {
+    "babel-loader": "~5.3.2",
+    "flux": "~2.0.3",
+    "jsx-loader": "^0.13.2",
+    "object-assign": "^4.0.1",
+    "react": "^0.14.0",
+    "react-dom": "^0.14.0",
+    "react-bootstrap": "^0.30.5",
+    "react-datagrid": "^2.1.1",
+    "webpack": "^1.11.0"
+  },
+  "devDependencies": {
+    "open-browser-webpack-plugin": "0.0.2",
+    "webpack-dev-server": "~1.10.1"
+  }
+}
