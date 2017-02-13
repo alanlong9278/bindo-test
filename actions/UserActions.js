@@ -1,34 +1,25 @@
 import Dispatcher from '../core/Dispatcher';
-import ActionTypes from '../constants/UserContants';
+import ActionTypes from '../constants/UserConstants';
+import $ from 'jquery';
 
 export default {
-  
   listUsers() {
+    const url = 'data/user.json';
     Dispatcher.dispatch({
       type: ActionTypes.LOAD_USERS
     });
-    // TODO: Get data from json file
-    .always((res, textStatus) => {
+    // TODO
+    $.ajax({
+      url: url,
+      method: 'GET',
+      dataType: 'json'
+    })
+    .then((result, textStatus) => {
         Dispatcher.dispatch({
-          type: ActionTypes.LOAD_COUNTRIES_DONE,
-          res: res,
-          textStatus: textStatus
+          type: ActionTypes.LOAD_USERS_DONE,
+          result,
+          textStatus
         });
       });
-  }
-
-  getUserDetail(id) {
-    Dispatcher.dispatch({
-      type: ActionTypes.LOAD_USER_DETAIL
-    });
-
-    // TODO: Get data from json file
-      .always((res, textStatus) => {
-        Dispatcher.dispatch({
-          type: ActionTypes.LOAD_USER_DETAIL_DONE,
-          res: res,
-          textStatus: textStatus
-        });
-   } 
   }
 };

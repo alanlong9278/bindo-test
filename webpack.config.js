@@ -1,9 +1,8 @@
 var webpack = require('webpack');
 var CommonsChunkPlugin = require("webpack/lib/optimize/CommonsChunkPlugin");
 var OpenBrowserPlugin = require('open-browser-webpack-plugin');
-
 module.exports = {
-  entry: './index.jsx',
+  entry: './index.js',
   output: {
     filename: 'bundle.js'
   },
@@ -13,7 +12,8 @@ module.exports = {
   module: {
     loaders:[
       { test: /\.jsx$/, exclude: /node_modules/, loader: 'jsx-loader' },
-      { test: /\.js$/, exclude:/node_modules/, loader: 'babel-loader'},
+      { test: /\.js$/, exclude:/node_modules/, loader: 'babel-loader' },
+      { test: /\.css$/, loader: 'style!css' }
     ]
   },
   plugins: [

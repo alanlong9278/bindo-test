@@ -1,28 +1,27 @@
-import EventEmitter from 'events';
+import EventEmitter from 'eventemitter3';
 import assign from 'object-assign';
 import Dispatcher from '../core/Dispatcher';
 import ActionTypes from '../constants/UserConstants';
+import sorty from 'sorty';
 
-let users = {
-  data: [],
-  meta: {
-    total: 0,
-    columns: [],
-    timezone: {},
-    name: 'user'
-  }
-};
-let query = {
-  order: '',
-  limit: 25,
-  offset: 0
-};
+let users = [];
 
 let UsersStore = assign({}, EventEmitter.prototype, {
+  emitChange() {
+    return this.emit('change');
+  },
+
+  addChangeListener(callback) {
+    this.on('change', callback);
+  },
+
+  removeChangeListener(callback) {
+    this.off('change', callback);
+  },
+
   getState() {
     return {
-      data: users,
-      query: query
+      users
     };
   }
 });
@@ -30,11 +29,10 @@ let UsersStore = assign({}, EventEmitter.prototype, {
 UsersStore.dispatchToken = Dispatcher.register((payload) => {
   switch (payload.type) {
     case ActionTypes.LOAD_USERS:
-      query = payload.query || query;
       break;
     case ActionTypes.LOAD_USERS_DONE:
       if (payload.textStatus === 'success') {
-        users = payload.res;
+        users = payload.result.data;
       }
       UsersStore.emitChange();
       break;
