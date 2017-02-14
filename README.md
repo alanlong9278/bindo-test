@@ -10,8 +10,7 @@ $ cd .. && npm start
 
 Visit http://127.0.0.1:8080 with your browser.
 
-![](img/display.mov)
-
+[![](img/display.png)](img/display.mov)
 ## Core Concepts
 
 According to Flux, an application should be divided into four parts.
