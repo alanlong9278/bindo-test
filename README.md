@@ -3,14 +3,14 @@ Install the demo.
 ```bash
 $ git clone https://github.com/alanlong9278/bindo-test.git
 $ cd bindo-test && npm install
-$ npm start
+// generate data
+$ cd data && ruby generate_data.rb 
+$ cd .. && npm start
 ```
 
 Visit http://127.0.0.1:8080 with your browser.
 
-![](img/screenshot1.png)
-
-You should see a button. Click it. That's all.
+![](img/display.mov)
 
 ## Core Concepts
 
@@ -28,6 +28,12 @@ According to Flux, an application should be divided into four parts.
 > 1. Dispatcher receives the Action and updates the Store
 > 1. Store emits a "change" event
 > 1. Views respond to the "change" event and update itself
+
+Used package
+react-datagrid: show the list data
+react-bootstrip: some tooltips
+lodash: deal with objects
+jquery: deal with json file to get data
 
 Don't get it? Take it easy. I will give you the details soon.
 

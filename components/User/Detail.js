@@ -1,4 +1,5 @@
 import React, { Component, PropTypes } from 'react';
+import _ from 'lodash';
 
 class Detail extends Component {
   constructor(props) {
@@ -8,19 +9,19 @@ class Detail extends Component {
   render () {
     // TODO: show user detail
     const user = this.props.user;
+    const leftStyle = { width:45, float: "left", marginRight:20, textAlign: "right" };
+    const rightStyle = {width:300, wordWrap: "break-word", wordBreak: "break-all", float: "left" };
+    const data = _.map(user, (value, key) => {
+          return ([
+            (<dt style={leftStyle}>{key}: </dt>),
+            (<dd style={rightStyle}>{value}</dd>)
+          ]);
+        });
     return (
-      <div className="col-xs-4" style={{ float: "left", width: 500 }}>
-        <dl className="dl-horizontal dl-xs">
-          <dt>ID:</dt>
-          <dd>{user.id}</dd>
-          <dt>Name:</dt>
-          <dd>{user.name}</dd>
-          <dt>Phone:</dt>
-          <dd>{user.phone}</dd>
-          <dt>Profile:</dt>
-          <dd>{user.image}</dd>
-          <dt>Phrase:</dt>
-          <dd>{user.phrase}</dd>
+      <div style={{ float: "left", width: 450 }}>
+        <h2> Detail Show </h2>
+        <dl>
+          {data}
         </dl>
       </div>
     );  

@@ -2,7 +2,6 @@ import EventEmitter from 'eventemitter3';
 import assign from 'object-assign';
 import Dispatcher from '../core/Dispatcher';
 import ActionTypes from '../constants/UserConstants';
-import sorty from 'sorty';
 
 let users = [];
 
