@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, ProtoTypes } from 'react';
 import DataGrid from 'react-datagrid';
 import { Button } from 'react-bootstrap';
 import 'react-datagrid/index.css';
@@ -85,5 +85,8 @@ class List extends Component {
   }
 }
 
-export default List;
+List.propTypes = {
+  users: PropTypes.array.isRequired
+};
 
+export default List;

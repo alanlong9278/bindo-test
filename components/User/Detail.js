@@ -29,7 +29,7 @@ class Detail extends Component {
 }
 
 Detail.propTypes = {
+  user: PropTypes.object.isRequired
 };
 
 export default Detail;
-
